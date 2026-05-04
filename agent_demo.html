@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 트렌드 조사 — Agent Framework 실행 결과</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Pretendard:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:      #0a0c11;
+    --bg2:     #111420;
+    --bg3:     #181c2a;
+    --bg4:     #1e2235;
+    --border:  #252a3d;
+    --border2: #2f3550;
+    --text:    #dde1ed;
+    --muted:   #5a6280;
+    --muted2:  #7a84a8;
+
+    --lg:      #00e5b8;
+    --lg-dim:  rgba(0,229,184,0.08);
+    --lg-glow: rgba(0,229,184,0.15);
+
+    --ag:      #ff7070;
+    --ag-dim:  rgba(255,112,112,0.08);
+    --ag-glow: rgba(255,112,112,0.15);
+
+    --cr:      #b09aff;
+    --cr-dim:  rgba(176,154,255,0.08);
+    --cr-glow: rgba(176,154,255,0.15);
+
+    --mono: 'JetBrains Mono', monospace;
+    --sans: 'Pretendard', 'Noto Sans KR', sans-serif;
+    --radius: 8px;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    padding: 28px 32px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, transparent 100%);
+  }
+  .header-left {}
+  .header-title {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--text);
+  }
+  .header-title span { color: var(--muted2); font-weight: 300; }
+  .header-sub {
+    margin-top: 5px;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--mono);
+  }
+
+  .task-pills { display: flex; gap: 8px; align-items: center; }
+  .task-pill {
+    font-size: 12px;
+    padding: 5px 14px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-family: var(--sans);
+    white-space: nowrap;
+  }
+  .task-pill.active {
+    background: var(--text);
+    color: var(--bg);
+    border-color: var(--text);
+    font-weight: 600;
+  }
+
+  /* ── TOOLBAR ── */
+  .toolbar {
+    padding: 10px 32px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .run-all-btn {
+    padding: 7px 20px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border2);
+    background: var(--bg3);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 500;
+  }
+  .toolbar-note {
+    font-size: 11px;
+    color: var(--muted);
+    font-family: var(--mono);
+  }
+
+  /* ── GRID ── */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    min-height: calc(100vh - 130px);
+  }
+
+  .panel {
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+  }
+  .panel:last-child { border-right: none; }
+
+  /* ── PANEL HEADER ── */
+  .panel-header {
+    padding: 18px 22px 14px;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg);
+  }
+  .fw-row { display: flex; align-items: baseline; gap: 10px; margin-bottom: 4px; }
+  .fw-name {
+    font-family: var(--mono);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .fw-name.lg { color: var(--lg); }
+  .fw-name.ag { color: var(--ag); }
+  .fw-name.cr { color: var(--cr); }
+  .fw-version {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--muted);
+  }
+  .fw-tag {
+    font-size: 11px;
+    color: var(--muted2);
+    margin-bottom: 12px;
+  }
+
+  .run-btn {
+    width: 100%;
+    padding: 7px;
+    border-radius: 6px;
+    border: 1px solid;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    cursor: default;
+  }
+  .run-btn.lg { border-color: var(--lg); color: var(--lg); background: var(--lg-dim); }
+  .run-btn.ag { border-color: var(--ag); color: var(--ag); background: var(--ag-dim); }
+  .run-btn.cr { border-color: var(--cr); color: var(--cr); background: var(--cr-dim); }
+
+  /* ── LOG AREA ── */
+  .log-area {
+    flex: 1;
+    padding: 16px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .log-entry { display: flex; flex-direction: column; gap: 4px; }
+
+  .log-time {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--muted);
+  }
+
+  /* system */
+  .log-system {
+    font-size: 11px;
+    color: var(--muted2);
+    font-family: var(--mono);
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  /* node */
+  .node-pill {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 4px;
+    border: 1px solid;
+    margin-bottom: 4px;
+    letter-spacing: 0.04em;
+  }
+  .node-pill.lg { border-color: var(--lg); color: var(--lg); background: var(--lg-dim); }
+  .node-pill.ag { border-color: var(--ag); color: var(--ag); background: var(--ag-dim); }
+  .node-pill.cr { border-color: var(--cr); color: var(--cr); background: var(--cr-dim); }
+
+  .log-content {
+    font-size: 12.5px;
+    line-height: 1.7;
+    color: var(--text);
+  }
+
+  /* arrow row */
+  .arrow-row {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-wrap: wrap;
+    margin: 2px 0;
+  }
+  .arrow-node {
+    font-family: var(--mono);
+    font-size: 10px;
+    padding: 3px 9px;
+    border-radius: 4px;
+    border: 1px solid;
+  }
+  .arrow-node.lg { border-color: var(--lg); color: var(--lg); }
+  .arrow-node.ag { border-color: var(--ag); color: var(--ag); }
+  .arrow-node.cr { border-color: var(--cr); color: var(--cr); }
+  .arrow-sep { color: var(--muted); font-size: 12px; font-family: var(--mono); }
+
+  /* result */
+  .log-divider { height: 1px; background: var(--border); margin: 4px 0; }
+  .result-done { font-size: 11px; color: var(--muted2); font-family: var(--mono); margin-bottom: 4px; }
+
+  .result-box {
+    padding: 12px 14px;
+    border-radius: 6px;
+    border-left: 3px solid;
+    font-size: 12px;
+    line-height: 1.75;
+  }
+  .result-box.lg { border-color: var(--lg); background: var(--lg-dim); }
+  .result-box.ag { border-color: var(--ag); background: var(--ag-dim); }
+  .result-box.cr { border-color: var(--cr); background: var(--cr-dim); }
+
+  .result-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    margin-bottom: 6px;
+    opacity: 0.8;
+  }
+  .result-label.lg { color: var(--lg); }
+  .result-label.ag { color: var(--ag); }
+  .result-label.cr { color: var(--cr); }
+
+  /* ── STATUS BAR ── */
+  .status-bar {
+    padding: 8px 22px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .dot-done {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--lg);
+    flex-shrink: 0;
+    box-shadow: 0 0 6px var(--lg);
+  }
+  .dot-done.ag { background: var(--ag); box-shadow: 0 0 6px var(--ag); }
+  .dot-done.cr { background: var(--cr); box-shadow: 0 0 6px var(--cr); }
+  .status-time { margin-left: auto; opacity: 0.6; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-left">
+    <div class="header-title">Agent Framework <span>비교 데모</span></div>
+    <div class="header-sub">// mock execution · no real llm calls · ai trend research task</div>
+  </div>
+  <div class="task-pills">
+    <div class="task-pill">블로그 글 작성</div>
+    <div class="task-pill">코드 작성 &amp; 디버깅</div>
+    <div class="task-pill active">시장 조사 보고서</div>
+  </div>
+</div>
+
+<!-- TOOLBAR -->
+<div class="toolbar">
+  <div class="run-all-btn">▶ 3개 프레임워크 동시 실행</div>
+  <div class="toolbar-note">task: "2026 AI 트렌드 조사 및 요약 보고서 생성" · 실행 완료</div>
+</div>
+
+<!-- GRID -->
+<div class="grid">
+
+  <!-- ════ LANGGRAPH ════ -->
+  <div class="panel">
+    <div class="panel-header">
+      <div class="fw-row">
+        <div class="fw-name lg">LangGraph</div>
+        <div class="fw-version">v1.1.10</div>
+      </div>
+      <div class="fw-tag">상태 머신 · 그래프 기반 흐름 제어</div>
+      <div class="run-btn lg">▶ RUN</div>
+    </div>
+
+    <div class="log-area">
+
+      <div class="log-entry">
+        <div class="log-time">09:00:00</div>
+        <div class="log-system">⚙ 그래프 초기화 — SEARCH → ANALYZE → SUMMARIZE 노드 등록</div>
+      </div>
+
+      <div class="log-entry">
+        <div class="log-time">09:00:01</div>
+        <div class="node-pill lg">SEARCH</div>
+        <div class="log-content">
+          검색 키워드: "2026 AI trend research"<br>
+          → 5개 문서 수집 완료
+        </div>
+      </div>
+
+      <div class="log-entry">
+        <div class="log-time">09:00:02</div>
+        <div class="arrow-row">
+          <span class="arrow-node lg">SEARCH</span>
+          <span class="arrow-sep">→</span>
+          <span class="arrow-node lg">ANALYZE</span>
+        </div>
+      </div>
+
+      <div class="log-entry">
+        <div class="log-time">09:00:03</div>
+        <div class="node-pill lg">ANALYZE</div>
+        <div class="log-content">
+          수집 데이터 분석:<br>
+          - 시장 규모: 2026년 $47B (+62%)<br>
+          - 주요 플레이어: OpenAI, Anthropic, Google<br>
+          - 핵심 트렌드: Agentic AI, Multimodal,<br>
+          &nbsp;&nbsp;On-device<br>
+          → 3개 소스 교차 검증 완료
+        </div>
+      </div>
+
+      <div class="log-entry">
+        <div class="log-time">09:00:04</div>
+        <div class="arrow-row">
+          <span class="arrow-node lg">ANALYZE</span>
+          <span class="arrow-sep">→</span>
+          <span class="arrow-node lg">SUMMARIZE</span>
+        </div>
+      </div>
+
+      <div class="log-entry">
+        <div class="log-time">09:00:05</div>
+        <div class="node-pill lg">SUMMARIZE</div>
+        <div class="log-content">
+          보고서 구조화 완료:<br>
+          1. 시장 개요 및 규모<br>
+          2. 경쟁 구도 분석<br>
+          3. 기술 트렌드<br>
+          4. 투자 현황<br>
+          5. 결론 및 시사점
+        </div>
+      </div>
+
+      <div class="log-entry">
+        <div class="log-divider"></div>
+        <div class="result-done">09:00:06 — 실행 완료</div>
+        <div class="result-box lg">
+          <div class="result-label lg">RESULT</div>
+          시장 조사 보고서 완성<br>
+          처리 문서: 5개 | 실행 흐름: 순차 3단계<br>
+          <br>
+          핵심 특징: 각 단계 상태가 명확히<br>
+          기록되어 추적 가능
+        </div>
+      </div>
+
+    </div>
+
+    <div class="status-bar">
+      <div class="dot-done"></div>
+      <span>완료</span>
+      <span class="status-time">0.8s elapsed</span>
+    </div>
+  </div>
+
+  <!-- ════ AUTOGEN ════ -->
+  <div class="panel">
+    <div class="panel-header">
+      <div class="fw-row">
+        <div class="fw-name ag">AutoGen</div>
+        <div class="fw-version">v0.7.5</div>
+      </div>
+      <div class="fw-tag">멀티 에이전트 · 자유 대화 방식</div>
+      <div class="run-btn ag">▶ RUN</div>
+    </div>
+
+    <div class="log-area">
+
+      <div class="log-entry">
+        <div class="log-time">09:00:00</div>
+        <div class="log-system">⚙ Researcher + Critic + Synthesizer<br>⚙ 3-에이전트 그룹 채팅 초기화</div>
+      </div>
+
+      <div class="log-entry">
+        <div class="log-time">09:00:01</div>
+        <div class="node-pill ag">UserProxy</div>
+        <div class="log-content">
+          2026 AI 트렌드를 조사하고<br>
+          요약 보고서를 만들어줘.
+        </div>
+      </div>
+
+      <div class="log-entry">
+        <div class="log-time">09:00:02</div>
+        <div class="node-pill ag">Researcher</div>
+        <div class="log-content">
+          조사 결과:<br>
+          - 글로벌 AI 에이전트 시장: $47B (2026)<br>
+          - CAGR: 45.8% (2024-2030)<br>
+          - Top 3: OpenAI, Google, Anthropic
+        </div>
+      </div>
+
+      <div class="log-entry">
+        <div class="log-time">09:00:03</div>
+        <div class="node-pill ag">Critic</div>
+        <div class="log-content">
+          검증:<br>
+          ✗ $47B 출처 불명확<br>
+          ✗ On-device 시장 누락<br>
+          → 보완 요청
+        </div>
+      </div>
+
+      <div class="log-entry">
+        <div class="log-time">09:00:04</div>
+        <div class="node-pill ag">Researcher</div>
+        <div class="log-content">
+          보완:<br>
+          - 출처: Gartner 2026 Q1 리포트<br>
+          - On-device: $8.2B (전체 17%)<br>
+          - 신규 진입: Meta, Samsung, Apple
+        </div>
+      </div>
+
+      <div class="log-entry">
+        <div class="log-time">09:00:05</div>
+        <div class="node-pill ag">Synthesizer</div>
+        <div class="log-content">
+          최종 보고서 통합 완료.<br>
+          4섹션, 주요 지표 12개.<br>
+          TERMINATE
+        </div>
+      </div>
+
+      <div class="log-entry">
+        <div class="log-divider"></div>
+        <div class="result-done">09:00:06 — 실행 완료</div>
+        <div class="result-box ag">
+          <div class="result-label ag">RESULT</div>
+          시장 조사 보고서 완성<br>
+          에이전트: 3개 | 대화 턴: 5회 | 검증 루프: 1회<br>
+          <br>
+          핵심 특징: 에이전트 간 자율<br>
+          교차검증으로 데이터 품질 향상
+        </div>
+      </div>
+
+    </div>
+
+    <div class="status-bar">
+      <div class="dot-done ag"></div>
+      <span>완료</span>
+      <span class="status-time">1.2s elapsed</span>
+    </div>
+  </div>
+
+  <!-- ════ CREWAI ════ -->
+  <div class="panel">
+    <div class="panel-header">
+      <div class="fw-row">
+        <div class="fw-name cr">CrewAI</div>
+        <div class="fw-version">v1.14.3</div>
+      </div>
+      <div class="fw-tag">역할 기반 · 팀 협업 방식</div>
+      <div class="run-btn cr">▶ RUN</div>
+    </div>
+
+    <div class="log-area">
+
+      <div class="log-entry">
+        <div class="log-time">09:00:00</div>
+        <div class="log-system">⚙ Crew 초기화 — DataCollector,<br>⚙ MarketAnalyst, ReportWriter 3명 등록</div>
+      </div>
+
+      <div class="log-entry">
+        <div class="log-time">09:00:01</div>
+        <div class="node-pill cr">DataCollector</div>
+        <div class="log-content">
+          [역할: 데이터 수집 전문가]<br>
+          Gartner, IDC, Statista 3개 소스<br>
+          핵심 지표 15개 추출 완료<br>
+          → MarketAnalyst에게 전달
+        </div>
+      </div>
+
+      <div class="log-entry">
+        <div class="log-time">09:00:02</div>
+        <div class="arrow-row">
+          <span class="arrow-node cr">DataCollector</span>
+          <span class="arrow-sep">→</span>
+          <span class="arrow-node cr">MarketAnalyst</span>
+        </div>
+      </div>
+
+      <div class="log-entry">
+        <div class="log-time">09:00:03</div>
+        <div class="node-pill cr">MarketAnalyst</div>
+        <div class="log-content">
+          [역할: 시장 분석가]<br>
+          분석 완료:<br>
+          - 시장 규모 $47B, 성장률 62%<br>
+          - 경쟁사 포지셔닝 매트릭스<br>
+          - 3대 트렌드 도출<br>
+          → ReportWriter에게 전달
+        </div>
+      </div>
+
+      <div class="log-entry">
+        <div class="log-time">09:00:04</div>
+        <div class="arrow-row">
+          <span class="arrow-node cr">MarketAnalyst</span>
+          <span class="arrow-sep">→</span>
+          <span class="arrow-node cr">ReportWriter</span>
+        </div>
+      </div>
+
+      <div class="log-entry">
+        <div class="log-time">09:00:05</div>
+        <div class="node-pill cr">ReportWriter</div>
+        <div class="log-content">
+          [역할: 보고서 작성자]<br>
+          최종 보고서 작성 완료<br>
+          - 총 5페이지, 차트 3개<br>
+          - 경영진 요약본 포함<br>
+          → 태스크 완료
+        </div>
+      </div>
+
+      <div class="log-entry">
+        <div class="log-divider"></div>
+        <div class="result-done">09:00:06 — 실행 완료</div>
+        <div class="result-box cr">
+          <div class="result-label cr">RESULT</div>
+          시장 조사 보고서 완성 (5페이지)<br>
+          에이전트: 3명 순차 실행 | 루프: 없음<br>
+          <br>
+          핵심 특징: 역할 분담 명확,<br>
+          파이프라인 예측 가능
+        </div>
+      </div>
+
+    </div>
+
+    <div class="status-bar">
+      <div class="dot-done cr"></div>
+      <span>완료</span>
+      <span class="status-time">0.6s elapsed</span>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
