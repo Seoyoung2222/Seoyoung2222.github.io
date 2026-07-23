@@ -6,7 +6,7 @@
 <title>박서영 | 사업 전략 기획자 Portfolio 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Caveat:wght@400;700&family=Gaegu:wght@400;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;family=Caveat:wght@400;700&amp;family=Gaegu:wght@400;700&amp;family=Bebas+Neue&amp;display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
 <style>
 :root {
@@ -92,7 +92,7 @@ nav a {
 }
 
 nav a::after {
-  content: attr(data-label);
+  content: attr(data-label);ㅋ
   position: absolute;
   right: 22px;
   top: 50%;
@@ -1053,14 +1053,157 @@ section {
   .hero-contact, .scroll-hint { position: static; margin-top: 40px; }
   .core-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
 }
+
+/* 2026 PORTFOLIO REFINEMENT */
+:root {
+  --max-width: 1280px;
+  --surface: rgba(255,255,255,.72);
+  --shadow-soft: 0 18px 55px rgba(26,26,26,.08);
+}
+
+body { font-size: 16px; }
+main { padding-top: 72px; }
+section {
+  min-height: auto;
+  padding: 140px max(6vw, calc((100vw - var(--max-width)) / 2));
+  scroll-margin-top: 72px;
+}
+#hero { min-height: calc(100vh - 72px); }
+
+.skip-link {
+  position: fixed; left: 20px; top: -80px; z-index: 1000;
+  background: var(--ink); color: white; padding: 12px 18px;
+  text-decoration: none; border-radius: 0 0 8px 8px;
+}
+.skip-link:focus { top: 0; }
+
+nav {
+  inset: 0 0 auto 0;
+  height: 72px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 0 max(4vw, calc((100vw - var(--max-width)) / 2));
+  border: 0;
+  border-bottom: 1px solid rgba(26,26,26,.14);
+  border-radius: 0;
+  box-shadow: none;
+  background: rgba(248,247,242,.9);
+}
+nav::before {
+  content: 'PARK SEOYOUNG';
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 14px;
+  letter-spacing: -.02em;
+  margin-right: auto;
+}
+nav a {
+  width: auto; height: auto; border: 0; border-radius: 0;
+  padding: 8px 10px;
+  color: var(--ink-muted);
+  font-size: 12px; font-weight: 700;
+  text-decoration: none;
+}
+nav a::before { content: attr(data-label); }
+nav a::after { display: none; }
+nav a:hover, nav a.active {
+  background: var(--highlight);
+  color: var(--ink);
+  transform: none;
+}
+
+.section-tag { left: max(6vw, calc((100vw - var(--max-width)) / 2)); }
+.section-num { right: max(6vw, calc((100vw - var(--max-width)) / 2)); }
+.hero-year { right: max(6vw, calc((100vw - var(--max-width)) / 2)); }
+
+#about {
+  grid-template-columns: minmax(240px,.8fr) minmax(300px,1.1fr) minmax(300px,1.1fr);
+  gap: clamp(36px,5vw,72px);
+}
+.about-left { position: sticky; top: 112px; }
+.info-block { padding-top: 6px; }
+.info-row { grid-template-columns: 105px 1fr; border-bottom: 1px solid rgba(26,26,26,.08); }
+
+.work-index { background: #1a1a1a; color: white; }
+.work-index .section-tag { color: rgba(255,255,255,.55); }
+.work-index .section-tag::before { background: white; }
+.work-index .section-num { color: var(--ink); }
+.work-index-head {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+  align-items: end; margin-bottom: 56px;
+}
+.work-index h2 {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: clamp(54px,8vw,112px); line-height: .9; letter-spacing: -.055em;
+}
+.work-index-head p { color: rgba(255,255,255,.7); font-size: 17px; line-height: 1.8; }
+.work-list { border-top: 1px solid rgba(255,255,255,.25); }
+.work-row {
+  display: grid; grid-template-columns: 70px 1.1fr 1.5fr auto;
+  gap: 30px; align-items: center; padding: 28px 0;
+  color: white; text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,.22);
+  transition: padding .25s, background .25s;
+}
+.work-row:hover { padding-left: 18px; padding-right: 18px; background: rgba(232,255,61,.1); }
+.work-row .work-no { color: var(--highlight); font-family: 'Bebas Neue'; letter-spacing: 2px; }
+.work-row h3 { font-size: clamp(24px,3vw,40px); line-height: 1; }
+.work-row p { color: rgba(255,255,255,.65); font-size: 14px; }
+.work-row .work-result { color: var(--highlight); font-weight: 800; text-align: right; }
+
+.project-intro, .feature-section, .activity-section, .school-section, .blog-section {
+  border-top: 1px solid rgba(26,26,26,.1);
+}
+.project-grid { grid-template-columns: 1.05fr .95fr; gap: clamp(44px,7vw,100px); align-items: start; }
+.project-info > p { padding: 8px 0; border-bottom: 1px solid rgba(26,26,26,.08); }
+.project-cards { margin-top: 40px; }
+.activity-card { border-radius: 10px; box-shadow: 0 10px 35px rgba(26,26,26,.05); }
+.feature-grid { gap: clamp(48px,8vw,110px); }
+.feature-item { padding: 20px 0; margin: 0; border-bottom: 1px solid rgba(26,26,26,.1); }
+.feature-item .icon { font-size: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--highlight); }
+.feature-item .icon::after { content: '↗'; font-size: 15px; display: grid; place-items: center; height: 100%; }
+.blog-card { box-shadow: var(--shadow-soft); }
+.blog-card:focus-visible, .work-row:focus-visible, nav a:focus-visible, a:focus-visible { outline: 3px solid #2563eb; outline-offset: 4px; }
+
+@media (max-width: 1040px) {
+  nav a { padding: 8px 6px; font-size: 11px; }
+  #about { grid-template-columns: 1fr 1fr; }
+  .about-left { position: static; grid-column: 1 / -1; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 30px; }
+  .work-row { grid-template-columns: 50px 1fr 1.3fr; }
+  .work-row .work-result { grid-column: 2 / -1; text-align: left; }
+}
+
+@media (max-width: 760px) {
+  main { padding-top: 60px; }
+  section { padding: 100px 6vw 80px; scroll-margin-top: 60px; }
+  #hero { min-height: calc(100svh - 60px); }
+  nav { height: 60px; overflow-x: auto; justify-content: flex-start; padding: 0 16px; }
+  nav::before { position: sticky; left: 0; padding-right: 14px; background: var(--paper); white-space: nowrap; }
+  nav a { white-space: nowrap; }
+  #about { display: grid; grid-template-columns: 1fr; }
+  .about-left { grid-column: auto; display: block; }
+  .profile-photo { width: 170px; height: 170px; }
+  .work-index-head { grid-template-columns: 1fr; gap: 24px; }
+  .work-row { grid-template-columns: 38px 1fr; gap: 14px; }
+  .work-row p, .work-row .work-result { grid-column: 2; }
+  .project-cards { grid-template-columns: 1fr; }
+  .hero-contact { font-size: 12px; overflow-wrap: anywhere; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
 </style>
 </head>
 <body>
+<a class="skip-link" href="#hero">본문으로 바로가기</a>
 
 <nav>
   <a href="#hero" data-label="Cover" class="active"></a>
   <a href="#about" data-label="About"></a>
   <a href="#core" data-label="Core"></a>
+  <a href="#work" data-label="Work"></a>
   <a href="#sk" data-label="SK Sunny"></a>
   <a href="#findown" data-label="Findown"></a>
   <a href="#ecopack" data-label="EcoPack"></a>
@@ -1150,8 +1293,13 @@ section {
       <div class="info-row"><span class="date">23.04~24.01</span><span class="desc"><b>FindOwn</b> AI 상표권 침해 판단 웹 서비스</span></div>
     </div>
   </div>
-
+  
   <div class="about-right">
+    <div class="info-block">
+      <h3>Experience</h3>
+      <div class="info-row"><span class="date">2026.04</span><span class="desc"><b>주식회사 두부</b> 수업 스쿼드팀 - 기획 인턴</span></div>
+    </div>
+    
     <div class="info-block">
       <h3>Training</h3>
       <div class="info-row"><span class="date">2026.03</span><span class="desc">KT 에이블스쿨 8기 DX 트랙 수료</span></div>
@@ -1198,6 +1346,34 @@ section {
         <b>실질적인 서비스를 완성해 나가는 기획자</b>가 되는 것이 저의 목표입니다.
       </p>
     </div>
+  </div>
+</section>
+
+<!-- SELECTED WORK INDEX -->
+<section id="work" class="work-index">
+  <div class="section-tag">Selected Work</div>
+  <div class="section-num">INDEX</div>
+  <div class="work-index-head">
+    <h2>Selected<br>Work</h2>
+    <p>문제 정의부터 전략 설계, 구현과 성과까지 이어진 대표 경험입니다. 핵심 결과를 먼저 확인하고 각 프로젝트의 상세 과정으로 이동할 수 있습니다.</p>
+  </div>
+  <div class="work-list">
+    <a class="work-row" href="#sk">
+      <span class="work-no">01</span><h3>SK Sunny C</h3>
+      <p>AI 뉴스 클리핑·자동 요약 파이프라인</p><span class="work-result">모니터링 시간 90%↓</span>
+    </a>
+    <a class="work-row" href="#ecopack">
+      <span class="work-no">02</span><h3>Eco Pack</h3>
+      <p>CBAM 대응 정책형 데이터 플랫폼</p><span class="work-result">KT Aivle 우수상</span>
+    </a>
+    <a class="work-row" href="#findown">
+      <span class="work-no">03</span><h3>FindOwn</h3>
+      <p>AI 기반 상표권 침해 판단 웹 서비스</p><span class="work-result">내부 정확도 72%</span>
+    </a>
+    <a class="work-row" href="#caps">
+      <span class="work-no">04</span><h3>CAPS</h3>
+      <p>프로그래밍 동아리 회장·조직 운영</p><span class="work-result">180명 리딩</span>
+    </a>
   </div>
 </section>
 
@@ -1670,6 +1846,9 @@ section {
 <script>
 const navLinks = document.querySelectorAll('nav a');
 const sections = document.querySelectorAll('section');
+
+navLinks.forEach(link => link.setAttribute('aria-label', link.dataset.label));
+document.querySelectorAll('a[target="_blank"]').forEach(link => link.setAttribute('rel', 'noopener noreferrer'));
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
