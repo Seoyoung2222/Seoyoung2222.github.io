@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>박서영 | AI 서비스 기획 · AX Project Manager Portfolio 2026</title>
-<meta name="description" content="업무 프로세스 분석, AI Agent·대화형 서비스 기획, VOC 기반 운영 개선 경험을 담은 박서영의 포트폴리오입니다.">
+<title>박서영 | 사업 전략 기획자 Portfolio 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;family=Caveat:wght@400;700&amp;family=Gaegu:wght@400;700&amp;family=Bebas+Neue&amp;display=swap" rel="stylesheet">
@@ -93,7 +92,7 @@ nav a {
 }
 
 nav a::after {
-  content: attr(data-label);
+  content: attr(data-label);ㅋ
   position: absolute;
   right: 22px;
   top: 50%;
@@ -1231,48 +1230,6 @@ nav a:hover, nav a.active {
 }
 .experience-note b { color: var(--ink); white-space: nowrap; }
 
-/* Content additions use the existing paper, ink and highlight system. */
-.hero-positioning {
-  max-width: 720px;
-  margin: 22px auto 0;
-  color: var(--ink-soft);
-  font-size: clamp(14px, 1.35vw, 18px);
-  line-height: 1.75;
-}
-.hero-positioning b { background: linear-gradient(transparent 62%, var(--highlight) 62%); }
-.hero-cta {
-  display: inline-block;
-  margin-top: 22px;
-  padding: 10px 16px;
-  border: 1.5px solid var(--ink);
-  box-shadow: 3px 3px 0 var(--ink);
-  color: var(--ink);
-  background: var(--highlight);
-  font-size: 14px;
-  font-weight: 800;
-  text-decoration: none;
-}
-.process-block { margin-top: 24px; }
-.process-title { margin-bottom: 12px; font-size: 13px; font-weight: 800; letter-spacing: .08em; color: var(--ink-muted); }
-.process-flow {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  border-top: 1.5px solid var(--ink);
-  border-bottom: 1.5px solid var(--ink);
-}
-.process-step { position: relative; min-height: 96px; padding: 16px 28px 16px 14px; border-right: 1px solid rgba(26,26,26,.18); }
-.process-step:last-child { border-right: 0; }
-.process-step:not(:last-child)::after { content: '→'; position: absolute; top: 17px; right: 8px; color: var(--ink-muted); }
-.process-step span { display: block; margin-bottom: 6px; color: var(--ink-muted); font-family: 'Bebas Neue', sans-serif; letter-spacing: 2px; }
-.process-step strong { display: block; font-size: 15px; line-height: 1.35; }
-.process-step small { display: block; margin-top: 6px; color: var(--ink-soft); font-size: 12px; line-height: 1.45; }
-.decision-split { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
-.decision-split div { padding: 16px 18px; border: 1px solid rgba(26,26,26,.16); background: rgba(255,255,255,.55); }
-.decision-split b { display: block; margin-bottom: 5px; font-size: 13px; }
-.decision-split p { color: var(--ink-soft); font-size: 13px; line-height: 1.6; }
-.team-result { background: var(--ink); color: white; margin-top: 18px; padding: 14px 18px; font-size: 14px; line-height: 1.65; }
-.team-result b { color: var(--highlight); }
-
 .project-intro, .feature-section, .activity-section, .school-section, .blog-section {
   border-top: 1px solid rgba(26,26,26,.1);
 }
@@ -1322,12 +1279,6 @@ nav a:hover, nav a.active {
   .responsibility-grid { grid-template-columns: 1fr; }
   .responsibility-card { min-height: auto; }
   .experience-note { align-items: flex-start; flex-direction: column; gap: 6px; }
-  .hero-positioning { max-width: 92%; }
-  .process-flow { grid-template-columns: 1fr; }
-  .process-step { min-height: auto; border-right: 0; border-bottom: 1px solid rgba(26,26,26,.16); }
-  .process-step:last-child { border-bottom: 0; }
-  .process-step:not(:last-child)::after { content: '↓'; top: auto; right: 14px; bottom: 8px; }
-  .decision-split { grid-template-columns: 1fr; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1342,8 +1293,8 @@ nav a:hover, nav a.active {
   <a href="#hero" data-label="Cover" class="active"></a>
   <a href="#about" data-label="About"></a>
   <a href="#core" data-label="Core"></a>
-  <a href="#vonai" data-label="Von AI"></a>
   <a href="#dubu" data-label="DUBU"></a>
+  <a href="#vonai" data-label="Von AI"></a>
   <a href="#work" data-label="Work"></a>
   <a href="#sk" data-label="SK Sunny"></a>
   <a href="#findown" data-label="Findown"></a>
@@ -1380,13 +1331,11 @@ nav a:hover, nav a.active {
       <h1 class="hero-title">Portfolio</h1>
     </div>
     <div class="hero-divider"></div>
-    <p class="hero-subtitle">AI 서비스 기획 · AX Project Manager · VOC 기반 서비스 개선</p>
-    <p class="hero-positioning">고객과 현업의 요구사항을 분석하고, 실행 가능한 AI 서비스와 기능으로 구체화하는 기획자 <b>박서영</b></p>
-    <a class="hero-cta" href="#work">대표 프로젝트 보기 ↓</a>
+    <p class="hero-subtitle">사업 전략 기획자 <b>박서영</b></p>
   </div>
 
   <div class="hero-contact">
-    <div><b>Park Seoyoung.</b> AI Service Planning</div>
+    <div><b>Park Seoyoung.</b> Business Strategy Planning</div>
     <div><b>TEL.</b> 010 3212 4814</div>
     <div><b>E-mail.</b> pjk2002112949@gmail.com</div>
   </div>
@@ -1401,15 +1350,15 @@ nav a:hover, nav a.active {
 
   <div class="about-left">
     <h2 class="about-headline">
-      <span class="accent">요구를 구조화하고,</span><br>
-      AI 서비스로 연결하는<br>기획자 박서영입니다.
+      <span class="accent">트렌드를 빠르게 읽는,</span><br>
+      지원자 박서영<br>입니다.
     </h2>
     <div class="profile-photo"><img src="data:image/jpeg;base64,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" alt="박서영 프로필"></div>
     <div class="contact-info">
       <div><b>Name</b> 박서영 (2002.11.29)</div>
       <div><b>Phone</b> 010-3212-4814</div>
       <div><b>E-mail</b> pjk2002112949@gmail.com</div>
-      <div><b>Github</b> <a href="https://github.com/Seoyoung2222" target="_blank">github.com/Seoyoung2222</a></div>
+      <div><b>Github</b> github.com/Seoyoung2222</div>
     </div>
   </div>
 
@@ -1441,7 +1390,7 @@ nav a:hover, nav a.active {
     <div class="info-block">
       <h3>Experience</h3>
       <div class="info-row"><span class="date">2026.04</span><span class="desc"><b>주식회사 두부</b> 수업 스쿼드팀 - 기획 인턴</span></div>
-      <div class="info-row"><span class="date">2026</span><span class="desc"><b>VonAI</b> AX Project Manager</span></div>
+      <div class="info-row"><span class="date">2026</span><span class="desc"><b>Von AI</b> B2B 서비스 운영</span></div>
     </div>
     
     <div class="info-block">
@@ -1467,12 +1416,12 @@ nav a:hover, nav a.active {
 
   <div class="core-wrap">
     <div class="core-grid">
-      <div class="core-bubble"><span>업무 프로세스<br>분석</span></div>
-      <div class="core-bubble"><span>AI 기능·대화<br>설계</span></div>
-      <div class="core-bubble featured"><span>VOC·운영 데이터<br>개선</span></div>
-      <div class="core-bubble"><span>시장 분석과<br>PMF 검토</span></div>
-      <div class="core-bubble"><span>개발·고객사<br>협업 조율</span></div>
-      <div class="core-bubble"><span>실행과<br>문서화</span></div>
+      <div class="core-bubble"><span>주도적<br>실행력</span></div>
+      <div class="core-bubble"><span>문제 구조화<br>능력</span></div>
+      <div class="core-bubble featured"><span>데이터 기반<br>의사결정</span></div>
+      <div class="core-bubble"><span>변화 대응<br>민첩성</span></div>
+      <div class="core-bubble"><span>협업 조율과<br>친화력</span></div>
+      <div class="core-bubble"><span>분위기<br>메이커</span></div>
     </div>
 
     <div class="core-content">
@@ -1484,138 +1433,111 @@ nav a:hover, nav a.active {
         <h1 class="core-title">핵심 역량</h1>
       </div>
       <p class="core-desc" style="margin-top: 30px;">
-        현업의 업무 흐름과 고객의 표현을 분석해 <b>문제와 예외 상황을 구조화</b>합니다.
-        AI Agent·대화형 서비스에서는 응답 생성뿐 아니라 후속 처리와 사람 개입 기준까지 정의하고,
-        <b>VOC와 운영 데이터로 개선안을 검증</b>합니다. 비개발 고객의 요구와 개발팀의 기술 조건 사이에서
-        실행 범위를 조율하고 문서로 합의를 만드는 것이 저의 강점입니다.
+        사람을 좋아하고 팀으로 일할 때 힘을 얻는 <b>대문자 E 성향</b>입니다.
+        <b>사람과 사회에 어떤 가치를 더할 수 있을지</b> 고민하며 더 나은 방향을 설계하는 데 흥미를 느낍니다.
+        상상을 실행 가능한 전략으로 연결하는 <b>기획의 가치</b>를 믿으며, 협업을 통해
+        <b>실질적인 서비스를 완성해 나가는 기획자</b>가 되는 것이 저의 목표입니다.
       </p>
     </div>
   </div>
 </section>
 
-<!-- VON AI EXPERIENCE -->
-<section id="vonai" class="experience-section vonai">
-  <div class="section-tag">Work Experience — Von AI</div>
+<!-- DUBU EXPERIENCE -->
+<section id="dubu" class="experience-section">
+  <div class="section-tag">Work Experience — DUBU</div>
   <div class="section-num">03</div>
 
   <div class="experience-head">
     <div>
-      <div class="experience-company">VonAI | AX Project Manager</div>
-      <h1 class="experience-title">업무 흐름을 읽고<br>AI Agent 구조로</h1>
+      <div class="experience-company">주식회사 두부 | 기획 인턴</div>
+      <h1 class="experience-title">고객 문의를<br>운영 개선의 단서로</h1>
     </div>
     <p class="experience-summary">
-      고객사의 기존 업무를 분석해 접수부터 CRM 저장까지 연결되는
-      <b>AI Reception Agent의 기능 범위와 예외 처리 기준</b>을 기획했습니다.
-      비개발 고객의 요구를 API·서버·클라우드 등 구현 조건으로 구체화하고,
-      시장 조사와 PMF 검토까지 사업화 준비를 함께 수행했습니다.
+      수업 스쿼드팀에서 고객 문의와 VOC를 단순 응대로 끝내지 않고
+      <b>반복 이슈와 고객 여정의 관점으로 구조화</b>했습니다.
+      이용 과정에서 고객이 겪는 불편과 운영상 병목을 파악하고,
+      관련 부서가 같은 기준으로 대응할 수 있도록 개선 방향을 정리했습니다.
     </p>
   </div>
 
   <div class="experience-meta">
-    <div><span>PROJECT</span><strong>AI Reception Agent 기획·사업화</strong></div>
-    <div><span>ROLE</span><strong>AX Project Manager</strong></div>
-    <div><span>FOCUS</span><strong>업무 분석 / Agent 설계 / PMF 검토</strong></div>
+    <div><span>ORGANIZATION</span><strong>주식회사 두부</strong></div>
+    <div><span>TEAM / ROLE</span><strong>수업 스쿼드팀 | 기획 인턴</strong></div>
+    <div><span>FOCUS</span><strong>VOC 분석 / 운영 개선 / 협업</strong></div>
   </div>
 
   <div class="responsibility-grid">
     <article class="responsibility-card">
       <span class="card-no">01</span>
-      <h3>업무 프로세스 분석</h3>
-      <p>병원 업무를 접수·문의 분류·안내·예약·CRM 저장의 5단계로 나누고 단계별 입력 정보와 처리 업무를 정의했습니다.</p>
+      <h3>VOC 수집 및 분류</h3>
+      <p>고객 문의와 피드백을 유형별로 정리하고, 반복적으로 발생하는 이슈와 우선 확인이 필요한 문제를 구분했습니다.</p>
     </article>
     <article class="responsibility-card">
       <span class="card-no">02</span>
-      <h3>AI·사람 역할 구분</h3>
-      <p>AI가 자동 처리할 수 있는 범위와 직원 확인이 필요한 예외 상황을 나누고, 사람 개입 이후의 후속 업무 흐름을 설계했습니다.</p>
+      <h3>고객 여정 기반 분석</h3>
+      <p>문의가 발생한 시점과 이용 흐름을 함께 살펴 고객이 막히는 지점과 운영 과정의 원인을 파악했습니다.</p>
     </article>
     <article class="responsibility-card">
       <span class="card-no">03</span>
-      <h3>지식·시스템 연계 검토</h3>
-      <p>RAG 기반 지식 검색과 응답 정확성 확보 방안을 살피고 CRM 및 외부 시스템 연계에 필요한 조건을 검토했습니다.</p>
+      <h3>운영 기준 개선</h3>
+      <p>분석한 내용을 바탕으로 운영 가이드와 고객 안내 문구를 검토하고, 일관된 대응을 위한 개선안을 제안했습니다.</p>
     </article>
     <article class="responsibility-card">
       <span class="card-no">04</span>
-      <h3>고객사·개발팀 조율</h3>
-      <p>고객의 업무 요구를 기능과 기술 조건으로 번역하고 API 연동, 서버 환경, 클라우드 접근 등 구현 전제와 제약을 조율했습니다.</p>
+      <h3>유관 부서 협업</h3>
+      <p>고객 관점의 문제와 필요한 조치를 명확히 문서화해 관련 구성원과 공유하고 후속 진행을 지원했습니다.</p>
     </article>
   </div>
-
-  <div class="process-block" aria-label="병원 AI 리셉션 업무 흐름">
-    <div class="process-title">HOSPITAL AI RECEPTION — 5 STEP WORKFLOW</div>
-    <div class="process-flow">
-      <div class="process-step"><span>01</span><strong>접수</strong><small>요청·고객 정보 확인</small></div>
-      <div class="process-step"><span>02</span><strong>문의 분류</strong><small>의도·업무 유형 식별</small></div>
-      <div class="process-step"><span>03</span><strong>안내</strong><small>RAG 지식 검색·응답</small></div>
-      <div class="process-step"><span>04</span><strong>예약</strong><small>조건 확인·예외 분기</small></div>
-      <div class="process-step"><span>05</span><strong>CRM 저장</strong><small>처리 결과·후속 업무 연결</small></div>
-    </div>
-  </div>
-
-  <div class="decision-split">
-    <div><b>병원 AI Agent 기획</b><p>답변 생성에 머물지 않고 예외 처리, 사람 개입 기준, CRM 연계까지 실제 운영 흐름을 기준으로 기능을 정의했습니다.</p></div>
-    <div><b>네이버클라우드 오픈이노베이션 PMF</b><p>관광 시장·경쟁 서비스를 조사하고 안내 업무의 반복성과 도입 필요성을 분석해 사업계획서와 IR 자료를 작성했습니다. 프로그램 선정에 기여했으며, 이후 관광 현장 배치 시나리오와 STT/TTS 상호작용 방안은 검토 단계로 진행했습니다.</p></div>
-  </div>
-  <div class="experience-note"><b>KEY DECISION</b><span>AI가 처리할 수 있는 대화와 직원 확인이 필요한 상황을 명시적으로 구분해, 기술 가능성과 현장 운영 리스크를 함께 관리했습니다.</span></div>
+  <div class="experience-note"><b>WORKING PRINCIPLE</b><span>고객의 표현을 그대로 전달하는 데 그치지 않고, 문제의 원인과 운영상 영향까지 정리해 다음 행동이 보이도록 만드는 것을 중요하게 생각했습니다.</span></div>
 </section>
 
-<!-- DUBU EXPERIENCE -->
-<section id="dubu" class="experience-section">
-  <div class="section-tag">Work Experience — DUBU</div>
+<!-- VON AI EXPERIENCE -->
+<section id="vonai" class="experience-section vonai">
+  <div class="section-tag">Work Experience — Von AI</div>
   <div class="section-num">04</div>
 
   <div class="experience-head">
     <div>
-      <div class="experience-company">주식회사 두부 | 수업 스쿼드 기획 인턴</div>
-      <h1 class="experience-title">대화 로그에서<br>개선의 근거를 찾다</h1>
+      <div class="experience-company">Von AI | B2B 서비스 운영</div>
+      <h1 class="experience-title">고객의 요구를<br>실행 가능한 과제로</h1>
     </div>
     <p class="experience-summary">
-      아동 대상 AI 사회정서학습 서비스에서 신규 수업 콘텐츠와 프롬프트를 기획하고
-      실제 수업 운영을 모니터링했습니다. 대화 단절과 맥락 미반영 사례를
-      <b>VOC와 운영 데이터로 유형화</b>해 수정·테스트·운영 검증의 반복 개선 과정으로 연결했습니다.
+      B2B 고객과의 커뮤니케이션 과정에서 나온 요구사항과 피드백을 정리해
+      <b>내부 기획팀과 개발팀이 이해할 수 있는 과제</b>로 연결했습니다.
+      서비스 도입과 운영 과정의 이슈를 추적하고, 고객과 내부 조직 사이의
+      정보 차이를 줄이는 데 집중했습니다.
     </p>
   </div>
 
   <div class="experience-meta">
-    <div><span>SERVICE / ROLE</span><strong>AI 사회정서학습 | 기획 인턴</strong></div>
-    <div><span>CONTENT</span><strong>신규 수업 20회기 / 체크인 42개 점검</strong></div>
-    <div><span>TOOLS</span><strong>Claude Code·MCP / Notion / Metabase / Slack</strong></div>
+    <div><span>ORGANIZATION</span><strong>Von AI</strong></div>
+    <div><span>ROLE</span><strong>B2B 서비스 운영</strong></div>
+    <div><span>FOCUS</span><strong>요구사항 정리 / 이슈 관리 / 고객 소통</strong></div>
   </div>
 
   <div class="responsibility-grid">
     <article class="responsibility-card">
       <span class="card-no">01</span>
-      <h3>수업·체크인 콘텐츠</h3>
-      <p>신규 수업 콘텐츠 20회기를 기획하고 체크인 콘텐츠 42개를 점검해 수업 목적과 대화 흐름의 일관성을 확인했습니다.</p>
+      <h3>요구사항 구조화</h3>
+      <p>고객 요청의 배경과 목적을 확인하고, 기능 요청과 운영 문의를 구분해 필요한 내용을 빠짐없이 정리했습니다.</p>
     </article>
     <article class="responsibility-card">
       <span class="card-no">02</span>
-      <h3>프롬프트 설계·테스트</h3>
-      <p>AI 대화 흐름과 응답 품질을 검증하고, 이전 응답의 맥락이 이어지도록 프롬프트와 대화 조건을 수정했습니다.</p>
+      <h3>내부 전달 및 조율</h3>
+      <p>고객의 언어를 기획 및 개발 관점의 실행 항목으로 구체화해 공유하고, 추가 확인이 필요한 내용을 조율했습니다.</p>
     </article>
     <article class="responsibility-card">
       <span class="card-no">03</span>
-      <h3>운영 모니터링</h3>
-      <p>실제 수업의 대화 로그와 운영 데이터를 확인해 반복 오류와 대화 단절 사례를 유형화하고 개선 우선순위를 정리했습니다.</p>
+      <h3>운영 이슈 추적</h3>
+      <p>서비스 도입과 이용 과정에서 발생한 이슈의 상태와 후속 조치를 관리해 고객 대응이 단절되지 않도록 지원했습니다.</p>
     </article>
     <article class="responsibility-card">
       <span class="card-no">04</span>
-      <h3>변경·버전 관리</h3>
-      <p>수정 전후 응답을 테스트하고 실제 운영 결과를 재확인했으며, 변경 이력과 프롬프트 버전을 기록해 후속 개선 근거를 남겼습니다.</p>
+      <h3>커뮤니케이션 문서화</h3>
+      <p>고객이 이해하기 쉬운 안내 자료와 진행 내용을 정리하고, 반복 질문을 줄일 수 있는 정보 전달 방식을 고민했습니다.</p>
     </article>
   </div>
-
-  <div class="process-block" aria-label="VOC 기반 AI 대화 서비스 개선 흐름">
-    <div class="process-title">AI CONVERSATION QUALITY — ITERATION LOOP</div>
-    <div class="process-flow">
-      <div class="process-step"><span>01</span><strong>VOC 분석</strong><small>로그·운영 데이터 확인</small></div>
-      <div class="process-step"><span>02</span><strong>문제 정의</strong><small>오류·대화 단절 유형화</small></div>
-      <div class="process-step"><span>03</span><strong>개선안 설계</strong><small>프롬프트·조건 수정</small></div>
-      <div class="process-step"><span>04</span><strong>테스트</strong><small>수정 전후 응답 비교</small></div>
-      <div class="process-step"><span>05</span><strong>운영 검증</strong><small>수업 결과 확인·버전 관리</small></div>
-    </div>
-  </div>
-  <div class="team-result">서비스 개선 업무에 참여하는 동안 나타난 <b>팀·서비스 차원의 성과</b> — 신규 결제자 환불률 16.4% → 8% 이하, 랜딩 전환율 12% 향상</div>
-  <div class="experience-note"><b>KEY DECISION</b><span>개별 오류를 즉시 수정하는 데 그치지 않고 반복 패턴을 먼저 유형화해, 프롬프트 변경이 실제 수업에서도 유효한지 단계적으로 검증했습니다.</span></div>
+  <div class="experience-note"><b>WORKING PRINCIPLE</b><span>고객 요청을 그대로 받아 적기보다 사용 맥락과 우선순위를 파악하고, 내부에서 판단하고 실행할 수 있는 형태로 번역하는 역할에 집중했습니다.</span></div>
 </section>
 
 <!-- SELECTED WORK INDEX -->
@@ -1624,24 +1546,24 @@ nav a:hover, nav a.active {
   <div class="section-num">INDEX</div>
   <div class="work-index-head">
     <h2>Experience<br>&amp; Work</h2>
-    <p>IT 기획 직무 연관성을 기준으로 정리한 대표 경험입니다. 업무 분석에서 AI 기능 정의, 운영 검증, 사업화 검토까지의 역할을 확인할 수 있습니다.</p>
+    <p>고객의 목소리를 운영 개선으로 연결한 실무 경험과 문제 정의부터 구현과 성과까지 이어진 대표 프로젝트입니다.</p>
   </div>
   <div class="work-list">
-    <a class="work-row" href="#vonai">
-      <span class="work-no">01</span><h3>VonAI</h3>
-      <p>병원 AI Reception Agent 기획 및 PMF 사업화 검토</p><span class="work-result">AX Project Manager</span>
-    </a>
     <a class="work-row" href="#dubu">
-      <span class="work-no">02</span><h3>DUBU</h3>
-      <p>AI 대화 콘텐츠 운영 및 VOC·데이터 기반 품질 개선</p><span class="work-result">20회기 · 42개 점검</span>
+      <span class="work-no">01</span><h3>DUBU</h3>
+      <p>고객 문의와 VOC 기반 수업 운영 개선</p><span class="work-result">CX 운영 개선</span>
+    </a>
+    <a class="work-row" href="#vonai">
+      <span class="work-no">02</span><h3>Von AI</h3>
+      <p>B2B 고객 요구사항 및 운영 이슈 관리</p><span class="work-result">B2B 고객 경험</span>
     </a>
     <a class="work-row" href="#sk">
       <span class="work-no">03</span><h3>SK Sunny C</h3>
-      <p>PR팀 뉴스 모니터링 업무 분석·수집·요약·전달 자동화</p><span class="work-result">약 60분 → 5분 이내</span>
+      <p>AI 뉴스 클리핑·자동 요약 파이프라인</p><span class="work-result">모니터링 시간 90%↓</span>
     </a>
     <a class="work-row" href="#ecopack">
-      <span class="work-no">04</span><h3>CBAM PASSPORT</h3>
-      <p>중소기업의 CBAM 데이터 수집·검토·보고 프로세스 디지털화</p><span class="work-result">KT Aivle 우수상</span>
+      <span class="work-no">04</span><h3>Eco Pack</h3>
+      <p>CBAM 대응 정책형 데이터 플랫폼</p><span class="work-result">KT Aivle 우수상</span>
     </a>
     <a class="work-row" href="#findown">
       <span class="work-no">05</span><h3>FindOwn</h3>
@@ -1680,13 +1602,13 @@ nav a:hover, nav a.active {
       <div class="activity-cards">
         <div class="activity-card">
           <h4>문제 정의</h4>
-          <p>SK네트웍스 PR팀의 뉴스 모니터링 업무를 분석했습니다. 여러 출처의 기사를 직접 수집·선별·요약·공유하는 <b>반복적인 수작업</b>이 매일 약 60분 소요되는 점을 핵심 문제로 정의했습니다.</p>
+          <p>기업에서는 산업 및 시장 정보를 파악하기 위해 다양한 <b>뉴스 데이터를 지속적으로 확인</b>해야 합니다. 그러나 뉴스 정보를 직접 수집하고 요약하는 과정은 <b>반복적인 수작업</b>으로 이루어져 <u>많은 시간이 소요</u>됩니다.</p>
         </div>
         <div class="activity-card">
           <h4>프로젝트 목표</h4>
           <ol>
             <li>뉴스 수집 자동화율 100% 달성</li>
-            <li>일일 뉴스 모니터링 소요시간 약 60분에서 5분 이내로 단축</li>
+            <li>일일 뉴스 모니터링 소요시간 1시간에서 10분 이하로 단축</li>
             <li>수집한 데이터를 의사결정에 활용할 수 있는 형태로 축적</li>
           </ol>
         </div>
@@ -1882,8 +1804,8 @@ nav a:hover, nav a.active {
   <div class="section-num">10</div>
 
   <div class="project-header">
-    <span class="project-tag">CBAM PASSPORT · Eco Pack</span>
-    <h1 class="project-title">CBAM 업무 프로세스 디지털화</h1>
+    <span class="project-tag">Eco Pack</span>
+    <h1 class="project-title">CBAM 원스톱 솔루션</h1>
   </div>
 
   <div class="project-grid">
@@ -1922,7 +1844,7 @@ nav a:hover, nav a.active {
 
 <!-- ECO PACK FEATURES -->
 <section class="feature-section">
-  <div class="section-tag">CBAM PASSPORT — Features</div>
+  <div class="section-tag">Eco Pack — Features</div>
   <div class="section-num">11</div>
 
   <h2 style="font-size: clamp(36px, 4vw, 52px); font-weight: 800; margin-bottom: 20px;">서비스 주요 기능</h2>
@@ -1975,7 +1897,7 @@ nav a:hover, nav a.active {
 
 <!-- ECO PACK REFLECTION -->
 <section class="feature-section">
-  <div class="section-tag">CBAM PASSPORT — Reflection</div>
+  <div class="section-tag">Eco Pack — Reflection</div>
   <div class="section-num">12</div>
 
   <div class="feature-grid">
